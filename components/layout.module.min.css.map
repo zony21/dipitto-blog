@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACA,MAAM,MAAM,MAAM,MAAM,SAAS,EAAE,KAAK,EACtC,AAAA,UAAU,AAAC,CACT,KAAK,CAAE,oCAAoC,CAC3C,OAAO,CAAE,YAAY,CACrB,MAAM,CAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,yBAAyB,CACxC",
+    "sources": [
+        "layout.module.scss"
+    ],
+    "names": [],
+    "file": "layout.module.min.css"
+}

@@ -1,0 +1,168 @@
+//テキストサイズ
+$h2: 20px;
+$h2sp: 1.5rem;
+$h3: 18px;
+$h3sp: 1.35rem;
+$normal: 16px;
+$normalsp: 1.25rem;
+$date: 14px;
+
+@import "index.scss";
+@import "header.scss";
+@import "footer.scss";
+@import "under.scss";
+
+html {
+  font-size: 68.5%;
+}
+body {
+  margin: 0;
+  position: relative;
+  font-family: 'Readex Pro', sans-serif;
+  transition: 0.6s;
+  background:#f8f8f8;
+  -webkit-animation:colour 10s linear infinite;
+  -moz-animation:colour 10s linear infinite;
+}
+@-webkit-keyframes colour{
+  0%{
+    background:#ffffff
+  }
+
+  40%{
+    background:#e9e8e8
+  }
+
+  80%{
+    background:#ebe9e9
+  }
+
+  100%{
+    background:#ffffff
+  }
+
+}
+.nursery_body {
+  @media only screen and (min-width: 667px) {
+    min-width: 1160px;
+  }
+}
+.body_open {
+  opacity: 1 !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  opacity: 0.8;
+  color: #000;
+}
+p {
+  margin: 0;
+}
+a {
+  transition: 0.6s;
+  text-decoration: none;
+}
+img {
+  vertical-align: bottom;
+}
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+li {
+  font-feature-settings: "palt" 1;
+  line-height: 1.5;
+}
+div,
+p,
+span,
+a,
+main,
+li,
+ul,
+img,
+input {
+  box-sizing: border-box;
+}
+main {
+  img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto !important;
+  }
+}
+iframe {
+  border: 0;
+}
+.txt {
+  line-height: 180%;
+  letter-spacing: 0.06em;
+  font-size: 1.25rem;
+}
+// レスポンシブnone
+@media only screen and (max-width: 1366px) {
+  .pc2 {
+    display: none !important;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .pc {
+    display: none !important;
+  }
+}
+@media only screen and (max-width: 667px) {
+  .pc_tab {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  .tab {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 668px) {
+  .sp {
+    display: none !important;
+  }
+}
+
+h1{
+  font-size: 40px;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-shadow:3px 3px 1px rgb(189,189,189);
+}
+h3{
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  font-size: $h3;
+  margin: 0 0 20px;
+}
+//ページネーション
+ul.pagenation {
+  display: flex;
+  justify-content: center;
+  gap:10px;
+  max-width: 1150px;
+  width: 92%;
+  margin: 50px auto 0;
+  li{
+    background: #ccc;
+    color: #fff;
+    padding: 10px;
+    font-size: $normal;
+    line-height: $normal;
+    font-weight: 400;
+  }
+	li.active {
+    background: #999!important;
+	}
+}
