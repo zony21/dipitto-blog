@@ -1,10 +1,11 @@
 import Date from "../../components/Date";
 import { client } from "../../libs/client";
+import Layout from '../../components/layout'
 
 export default function BlogId({ blog }) {
   return (
-    <main>
-      <h1>{blog.title}</h1>
+    <Layout>
+      <h2>{blog.title}</h2>
       <div className="cat">{blog.category.name}</div>
       <p>
         <Date dateString={blog.publishedAt} />
@@ -14,7 +15,7 @@ export default function BlogId({ blog }) {
           __html: `${blog.main}`,
         }}
       />
-    </main>
+    </Layout>
   );
 }
 

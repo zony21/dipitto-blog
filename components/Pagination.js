@@ -10,7 +10,7 @@ function Pagination(props) {
           </li>
         ))}
       </ul>
-      <div className="count">全<span>{props.totalCount}</span>記事</div>
+      <div className="count">ALL Topics <span>{props.totalCount}</span></div>
     </div>
   )
 }

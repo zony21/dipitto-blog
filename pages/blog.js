@@ -18,7 +18,7 @@ function Blog(props) {
                                         <a>
                                             <div className="img_box">
                                                 <div className="img">
-                                                    {task.image == undefined ? <img src="/images/noimage.jpg" /> : <img src={task.image.url} />}
+                                                    {task.image == undefined ? <Image src="/images/noimage.jpg" layout="fill"/> : <Image src={task.image.url} layout="fill"/>}
                                                 </div>
                                                 <div className='categ'>
                                                     {task.category.name}
