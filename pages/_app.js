@@ -3,56 +3,57 @@ import { client } from '../libs/client';
 import { React, useEffect, useState, useMemo } from "react";
 
 export default function App({ Component, pageProps }) {
-    const [blogcont, setblogcont] = useState([]);
-    useEffect(() => {
-        client
-            .get({
-                endpoint: 'blog',
-                queries: { limit: 300 }
-            })
-            .then((res) => setblogcont(res.contents));
-    }, []);
-    const [blogcat, setblogcat] = useState([]);
-    useEffect(() => {
-        client
-            .get({
-                endpoint: 'category',
-            })
-            .then((res) => setblogcat(res.contents));
-    }, []);
-    const [totalCount, settotalCount] = useState(0);
-    useEffect(() => {
-        client
-            .get({
-                endpoint: 'blog',
-                queries: { limit: 300 }
-            })
-            .then((res) => settotalCount(res.totalCount));
-    }, []);
-    // 検索条件
-    const [filterQuery, setFilterQuery] = useState({});
-    const [filterCat, setFilterCat] = useState([]);
-    const [archive, setArchive] = useState([]);
-    useEffect(() => {
-        client
-            .get({
-                endpoint: 'blog',
-                queries: { limit: 300 }
-            })
-            .then((res) => setArchive(res.contents));
-    }, []);
-    //ページネーション
-    //ブログ記事１ページ表示数
-    const defopage = 10;
-    const [pageCount, setpageCount] = useState(defopage);
-    const [pageNaition, setpageNaition] = useState(0);
-    const [active, setActive] = useState(0);
-    const getNextpage = e => {
-        const nowpage = e.target.value;
-        setpageNaition(+pageCount * nowpage);
-        setActive(nowpage)
-    };
-      // ソート条件
+  const titlename = "Dipitto Blog"
+  const [blogcont, setblogcont] = useState([]);
+  useEffect(() => {
+    client
+      .get({
+        endpoint: 'blog',
+        queries: { limit: 300 }
+      })
+      .then((res) => setblogcont(res.contents));
+  }, []);
+  const [blogcat, setblogcat] = useState([]);
+  useEffect(() => {
+    client
+      .get({
+        endpoint: 'category',
+      })
+      .then((res) => setblogcat(res.contents));
+  }, []);
+  const [totalCount, settotalCount] = useState(0);
+  useEffect(() => {
+    client
+      .get({
+        endpoint: 'blog',
+        queries: { limit: 300 }
+      })
+      .then((res) => settotalCount(res.totalCount));
+  }, []);
+  // 検索条件
+  const [filterQuery, setFilterQuery] = useState({});
+  const [filterCat, setFilterCat] = useState([]);
+  const [archive, setArchive] = useState([]);
+  useEffect(() => {
+    client
+      .get({
+        endpoint: 'blog',
+        queries: { limit: 300 }
+      })
+      .then((res) => setArchive(res.contents));
+  }, []);
+  //ページネーション
+  //ブログ記事１ページ表示数
+  const defopage = 10;
+  const [pageCount, setpageCount] = useState(defopage);
+  const [pageNaition, setpageNaition] = useState(0);
+  const [active, setActive] = useState(0);
+  const getNextpage = e => {
+    const nowpage = e.target.value;
+    setpageNaition(+pageCount * nowpage);
+    setActive(nowpage)
+  };
+  // ソート条件
   const [sort, setSort] = useState({});
   const filteredTask = useMemo(() => {
     let tmpTasks = blogcont;
@@ -102,6 +103,7 @@ export default function App({ Component, pageProps }) {
     const { name, value } = e.target;
     setFilterQuery({ ...filterQuery, [name]: value });
   };
+  console.log(filterQuery)
   //checkbox
   const catFilter = e => {
     if (filterCat.includes(e.target.value)) {
@@ -114,5 +116,5 @@ export default function App({ Component, pageProps }) {
       setpageCount(totalCount)
     }
   }
-    return <Component {...pageProps} catFilter={catFilter} filterCat={filterCat} handleFilter={handleFilter} filterQuery={filterQuery} pageCount={pageCount} blogcat={blogcat} filteredTask={filteredTask} getNextpage={getNextpage} active={active} pageNaition={pageNaition} totalCount={totalCount} blogcont={blogcont} />
+  return <Component {...pageProps} titlename={titlename} catFilter={catFilter} filterCat={filterCat} handleFilter={handleFilter} filterQuery={filterQuery} pageCount={pageCount} blogcat={blogcat} filteredTask={filteredTask} getNextpage={getNextpage} active={active} pageNaition={pageNaition} totalCount={totalCount} blogcont={blogcont} />
 }

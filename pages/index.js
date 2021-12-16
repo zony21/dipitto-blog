@@ -7,11 +7,11 @@ export default function Home(props) {
   return (
     <Layout>
       <Head>
-        <title>Dipitto Blog</title>
+        <title>{props.titlename}</title>
       </Head>
-      <div className="blog_wrap">
+      <div className="blog_wrap cont_wrap">
         <div className="box">
-          <Blog catFilter={props.catFilter} filterCat={props.filterCat} blogcat={props.blogcat} filterQuery={props.filterQuery} totalCount={props.totalCount} active={props.active} getNextpage={props.getNextpage} filteredTask={props.filteredTask} pageCount={props.pageCount} pageNaition={props.pageNaition} />
+          <Blog catFilter={props.catFilter} filterCat={props.filterCat} handleFilter={props.handleFilter} blogcat={props.blogcat} filterQuery={props.filterQuery} totalCount={props.totalCount} active={props.active} getNextpage={props.getNextpage} filteredTask={props.filteredTask} pageCount={props.pageCount} pageNaition={props.pageNaition} />
         </div>
       </div>
     </Layout>

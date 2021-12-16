@@ -8,7 +8,6 @@ function Blog(props) {
     return (
         <div className='blog_cont'>
             <div className='blog_in'>
-
                 <ul className="blog">
                     {
                         props.filteredTask.filter((pana, index) => index >= props.pageNaition && index <= (props.pageCount - 1) + props.pageNaition).map((task, index) => {
@@ -18,7 +17,7 @@ function Blog(props) {
                                         <a>
                                             <div className="img_box">
                                                 <div className="img">
-                                                    {task.image == undefined ? <Image src="/images/noimage.jpg" layout="fill"/> : <Image src={task.image.url} layout="fill"/>}
+                                                    {task.image == undefined ? <img src="/images/noimage.jpg" /> : <img src={task.image.url} />}
                                                 </div>
                                                 <div className='categ'>
                                                     {task.category.name}
@@ -40,7 +39,7 @@ function Blog(props) {
             </div>
             <div className="filter_wrap">
                 <div className="filter-box">
-                    <div className="input-group text-input">
+                    <div className="input-group">
                         <input type="text" name="title" className="form-input" placeholder="タイトル検索"
                             value={props.filterQuery.title || ''}
                             onChange={props.handleFilter}

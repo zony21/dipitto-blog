@@ -167,3 +167,36 @@ ul.pagenation {
     background: #999!important;
 	}
 }
+.cont_wrap{
+  padding: 100px 0 0;
+}
+div.categ {
+  padding: 10px;
+  background: rgb(110, 110, 110);
+  color: #fff;
+  width: 150px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 14px;
+  right: 0;
+  bottom: 0;
+  letter-spacing: 0.1em;
+}
+
+.backlink{
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.767);
+  border: 1px solid rgba(0, 0, 0, 0.767);
+  display: block;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  @media only screen and (min-width: 1026px) {
+    &:hover {
+      background: #fff;
+      color: #000;
+    }
+}
+}
