@@ -36,9 +36,9 @@ export default function BlogId({ blog, titlename, blogcont }) {
             <div className="linkbox">
               <h3>参考</h3>
               <ul>
-                {blog.link == undefined ? "" : <li><a href={blog.link}>{blog.linktl}</a></li>}
-                {blog.link2 == undefined ? "" : <li><a href={blog.link2}>{blog.linktl2}</a></li>}
-                {blog.link3 == undefined ? "" : <li><a href={blog.link3}>{blog.linktl3}</a></li>}
+                {blog.link == undefined ? "" : <li><a href={blog.link} target="_blank">{blog.linktl}</a></li>}
+                {blog.link2 == undefined ? "" : <li><a href={blog.link2} target="_blank">{blog.linktl2}</a></li>}
+                {blog.link3 == undefined ? "" : <li><a href={blog.link3} target="_blank">{blog.linktl3}</a></li>}
               </ul>
             </div>
           </div>
