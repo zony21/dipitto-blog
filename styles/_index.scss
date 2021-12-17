@@ -259,30 +259,40 @@ div.blog_in {
     div.content {
         font-size: $normal;
         margin: 0 0 50px;
-        p {
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 40px 0 30px;
+        }
+        code{
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.767);
+            display: block;
+            color: #fff;
         }
     }
     div.linkbox {
-        background: rgba(255,255,255,0.4);
+        background: rgba(255, 255, 255, 0.4);
         padding: 40px 20px;
         box-shadow: 0 0 4px rgba(204, 204, 204, 0.349);
         a {
             font-size: 16px;
             color: #000;
             position: relative;
-            &::after{
+            &::after {
                 position: absolute;
                 bottom: -1px;
                 left: 0;
                 background: #000;
-                content: '';
+                content: "";
                 height: 1px;
                 width: 0;
                 transition: 0.6s;
             }
             @media only screen and (min-width: 1026px) {
                 &:hover {
-                    &::after{
+                    &::after {
                         width: 100%;
                     }
                 }
@@ -294,26 +304,26 @@ div.blog_in {
 ul.blog.pick_list {
     display: block;
     margin: 0 0 50px;
-        li.blog_list {
-            width: 100%;
-            &:nth-child(n+2){
-                margin: 30px 0 0;
+    li.blog_list {
+        width: 100%;
+        &:nth-child(n + 2) {
+            margin: 30px 0 0;
+        }
+        a {
+            div.img_box {
+                margin: 0 0 10px;
+                div.img {
+                    img {
+                    }
+                }
+                div.categ {
+                }
             }
-            a {
-                div.img_box {
-                    margin: 0 0 10px;
-                    div.img {
-                        img {
-                        }
-                    }
-                    div.categ {
-                    }
-                }
-                time {
-                }
-                div.tl {
-                    margin: 10px 0 0;
-                }
+            time {
+            }
+            div.tl {
+                margin: 10px 0 0;
             }
         }
     }
+}

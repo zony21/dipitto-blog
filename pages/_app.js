@@ -84,7 +84,6 @@ export default function App({ Component, pageProps }) {
       ) {
         return false;
       }
-
       return row;
     });
     // ソート
