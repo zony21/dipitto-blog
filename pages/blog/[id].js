@@ -40,7 +40,7 @@ export default function BlogId({ blog, titlename, blogcont }) {
               <h3>PickUp</h3>
               <ul className="blog pick_list">
                 {
-                  blogcont.filter((pana, index) => index <= 4 && pana.category.name == blog.category.name).map((task, index) => {
+                  blogcont.filter((pana, index) => index <= 4 && pana.category.name == blog.category.name && pana.id != blog.id).map((task, index) => {
                     return (
                       <li className='blog_list' key={index} id={`index${index + 1}`}>
                         <Link href={`/blog/${task.id}`}>
