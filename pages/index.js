@@ -8,6 +8,8 @@ export default function Home(props) {
     <Layout>
       <Head>
         <title>{props.titlename}</title>
+        <meta name="twitter:title" content={props.titlename} />
+        <meta name="twitter:image" content="/images/link_img.jpg" />
       </Head>
       <div className="blog_wrap cont_wrap">
         <div className="box">

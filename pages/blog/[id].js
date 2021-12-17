@@ -9,6 +9,8 @@ export default function BlogId({ blog, titlename, blogcont }) {
     <Layout>
       <Head>
         <title>{titlename}|{blog.title}</title>
+        <meta name="twitter:title" content={`${titlename}|${blog.title}`} />
+        <meta name="twitter:image" content={blog.image == undefined ? "/images/noimage.jpg" : blog.image.url} />
       </Head>
       <div className="cont_wrap blog_wrap">
         <div className="blog_cont">
