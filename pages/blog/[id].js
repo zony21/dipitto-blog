@@ -34,6 +34,7 @@ export default function BlogId({ blog, titlename, blogcont }) {
               }}
             />
             <div className="linkbox">
+              <h3>参考</h3>
               <a href={blog.link}>{blog.linktl}</a>
             </div>
           </div>

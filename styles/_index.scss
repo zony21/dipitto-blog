@@ -265,17 +265,27 @@ div.blog_in {
         h6 {
             margin: 40px 0 30px;
         }
-        code{
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.767);
+        pre {
             display: block;
-            color: #fff;
+            overflow-x: scroll;
+            background: rgba(0, 0, 0, 0.767);
+            padding: 10px;
+            code {
+                display: block;
+                color: #fff;
+            }
+        }
+        a {
+            word-wrap: break-word;
         }
     }
     div.linkbox {
         background: rgba(255, 255, 255, 0.4);
         padding: 40px 20px;
         box-shadow: 0 0 4px rgba(204, 204, 204, 0.349);
+        h3{
+            text-align: left;
+        }
         a {
             font-size: 16px;
             color: #000;
