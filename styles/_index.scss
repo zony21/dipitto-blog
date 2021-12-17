@@ -283,27 +283,34 @@ div.blog_in {
         background: rgba(255, 255, 255, 0.4);
         padding: 40px 20px;
         box-shadow: 0 0 4px rgba(204, 204, 204, 0.349);
-        h3{
+        h3 {
             text-align: left;
         }
-        a {
-            font-size: 16px;
-            color: #000;
-            position: relative;
-            &::after {
-                position: absolute;
-                bottom: -1px;
-                left: 0;
-                background: #000;
-                content: "";
-                height: 1px;
-                width: 0;
-                transition: 0.6s;
-            }
-            @media only screen and (min-width: 1026px) {
-                &:hover {
+        ul {
+            li {
+                &:nth-child(n+2){
+                    margin: 10px 0 0;
+                }
+                a {
+                    font-size: 16px;
+                    color: #000;
+                    position: relative;
                     &::after {
-                        width: 100%;
+                        position: absolute;
+                        bottom: -1px;
+                        left: 0;
+                        background: #000;
+                        content: "";
+                        height: 1px;
+                        width: 0;
+                        transition: 0.6s;
+                    }
+                    @media only screen and (min-width: 1026px) {
+                        &:hover {
+                            &::after {
+                                width: 100%;
+                            }
+                        }
                     }
                 }
             }

@@ -24,9 +24,9 @@ export default function BlogId({ blog, titlename, blogcont }) {
                 <Date dateString={blog.publishedAt} />
               </div>
             </div>
-              <ul className="tags">
-                {blog.tag.map((ta, index) => <li key={index}><span>#</span>{ta}</li>)}
-              </ul>
+            <ul className="tags">
+              {blog.tag.map((ta, index) => <li key={index}><span>#</span>{ta}</li>)}
+            </ul>
             <h2>{blog.title}</h2>
             <div className="content"
               dangerouslySetInnerHTML={{
@@ -35,7 +35,11 @@ export default function BlogId({ blog, titlename, blogcont }) {
             />
             <div className="linkbox">
               <h3>参考</h3>
-              <a href={blog.link}>{blog.linktl}</a>
+              <ul>
+                {blog.link == undefined ? "" : <li><a href={blog.link}>{blog.linktl}</a></li>}
+                {blog.link2 == undefined ? "" : <li><a href={blog.link2}>{blog.linktl2}</a></li>}
+                {blog.link3 == undefined ? "" : <li><a href={blog.link3}>{blog.linktl3}</a></li>}
+              </ul>
             </div>
           </div>
           <div className="filter_wrap">
