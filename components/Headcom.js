@@ -9,6 +9,7 @@ function Headcom(props) {
             <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@zonyzony14" />
+            <meta name="google-site-verification" content="HaZ81SzNPewdVIOUG_s4p0_VMcBBlcyqDPoIi8-xh5s" />
         </Head>
     )
 }
