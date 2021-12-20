@@ -33,6 +33,7 @@ export default function BlogId({ blog, titlename, blogcont }) {
                 __html: `${blog.main}`,
               }}
             />
+            {blog.link == undefined ? "" : 
             <div className="linkbox">
               <h3>参考</h3>
               <ul>
@@ -41,6 +42,7 @@ export default function BlogId({ blog, titlename, blogcont }) {
                 {blog.link3 == undefined ? "" : <li><a href={blog.link3} target="_blank">{blog.linktl3}</a></li>}
               </ul>
             </div>
+            }
           </div>
           <div className="filter_wrap">
             <div className="filter-box">
