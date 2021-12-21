@@ -44,7 +44,7 @@ export default function App({ Component, pageProps }) {
   }, []);
   //ページネーション
   //ブログ記事１ページ表示数
-  const defopage = 10;
+  const defopage = 6;
   const [pageCount, setpageCount] = useState(defopage);
   const [pageNaition, setpageNaition] = useState(0);
   const [active, setActive] = useState(0);
