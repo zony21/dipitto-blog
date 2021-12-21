@@ -104,6 +104,28 @@
                             display: none;
                         }
                     }
+                    ul.tags {
+                        li {
+                            overflow: hidden;
+                            position: relative;
+                            padding: 0;
+                            input {
+                                display: none;
+                            }
+                            label {
+                                height: 100%;
+                                width: 100%;
+                                left: 0;
+                                top: 0;
+                                padding: 10px 20px;
+                                display: block;
+                            }
+                            input:checked + label {
+                                background: #c1c1c1;
+                                color: #fff;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -288,7 +310,7 @@ div.blog_in {
         }
         ul {
             li {
-                &:nth-child(n+2){
+                &:nth-child(n + 2) {
                     margin: 10px 0 0;
                 }
                 a {

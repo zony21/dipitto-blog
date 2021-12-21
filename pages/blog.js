@@ -51,7 +51,7 @@ function Blog(props) {
                             {
                                 props.blogcat.map((item, index) => {
                                     return (
-                                        <div className="cat">
+                                        <div className="cat" key={index}>
                                             <input
                                                 type="checkbox"
                                                 value={item.id}
@@ -59,13 +59,38 @@ function Blog(props) {
                                                 checked={props.filterCat.includes(item.id)}
                                                 id={`cat${index + 1}`}
                                             />
-                                            <label key={index} for={`cat${index + 1}`}>
+                                            <label htmlFor={`cat${index + 1}`}>
                                                 {item.name}
                                             </label>
                                         </div>
                                     );
                                 })
                             }
+                        </div>
+                    </div>
+                    <div className="input-group check-input">
+                        <h3>Tags</h3>
+                        <div className="selectbox">
+                            <ul className="tags">
+                                {
+                                    props.blogtag.map((tg, index) => {
+                                        return (
+                                            <li key={index}>
+                                                <input
+                                                    type="checkbox"
+                                                    value={tg.id}
+                                                    onChange={props.tagFilter}
+                                                    checked={props.filterTag.includes(tg.id)}
+                                                    id={`tag${index + 1}`}
+                                                />
+                                                <label htmlFor={`tag${index + 1}`}>
+                                                    #{tg.tag}
+                                                </label>
+                                            </li>
+                                        );
+                                    })
+                                }
+                            </ul>
                         </div>
                     </div>
                 </div>

@@ -21,6 +21,14 @@ export default function App({ Component, pageProps }) {
       })
       .then((res) => setblogcat(res.contents));
   }, []);
+  const [blogtag, setblogtag] = useState([]);
+  useEffect(() => {
+    client
+      .get({
+        endpoint: 'tags',
+      })
+      .then((res) => setblogtag(res.contents));
+  }, []);
   const [totalCount, settotalCount] = useState(0);
   useEffect(() => {
     client
@@ -33,6 +41,7 @@ export default function App({ Component, pageProps }) {
   // 検索条件
   const [filterQuery, setFilterQuery] = useState({});
   const [filterCat, setFilterCat] = useState([]);
+  const [filterTag, setFilterTag] = useState([]);
   const [archive, setArchive] = useState([]);
   useEffect(() => {
     client
@@ -68,41 +77,29 @@ export default function App({ Component, pageProps }) {
       ) {
         return false;
       }
-
-      // カテゴリーで絞り込み
-      if (
-        filterQuery.category_id &&
-        row.category[0].id !== filterQuery.category_id
-      ) {
-        return false;
-      }
-
-      // checkboxテスト中
+      // カテゴリー絞り込み
       if (
         filterCat.length > 0 &&
         filterCat.includes(row.category.id) == false
       ) {
         return false;
       }
+      // tag絞り込み
+      if (
+        filterTag.length > 0 &&
+        row.btag.map(reg => filterTag.includes(reg.id)) == false
+      ) {
+        return false;
+      }
       return row;
     });
-    // ソート
-    if (sort.key) {
-      tmpTasks = tmpTasks.sort((a, b) => {
-        a = a[sort.key];
-        b = b[sort.key];
-        return (a === b ? 0 : a > b ? 1 : -1) * sort.order;
-      });
-    }
-
     return tmpTasks;
-  }, [filterQuery, sort, blogcont, filterCat]);
+  }, [filterQuery, sort, blogcont, filterCat, filterTag]);
   // 入力した情報をfilterQueryに入れる
   const handleFilter = e => {
     const { name, value } = e.target;
     setFilterQuery({ ...filterQuery, [name]: value });
   };
-  console.log(filterQuery)
   //checkbox
   const catFilter = e => {
     if (filterCat.includes(e.target.value)) {
@@ -115,5 +112,17 @@ export default function App({ Component, pageProps }) {
       setpageCount(totalCount)
     }
   }
-  return <Component {...pageProps} titlename={titlename} catFilter={catFilter} filterCat={filterCat} handleFilter={handleFilter} filterQuery={filterQuery} pageCount={pageCount} blogcat={blogcat} filteredTask={filteredTask} getNextpage={getNextpage} active={active} pageNaition={pageNaition} totalCount={totalCount} blogcont={blogcont} />
+  //checkbox
+  const tagFilter = e => {
+    if (filterTag.includes(e.target.value)) {
+      setFilterTag(filterTag.filter(item => item !== e.target.value));
+      setpageNaition(0)
+      setpageCount(defopage)
+    } else {
+      setFilterTag([...filterTag, e.target.value]);
+      setpageNaition(0)
+      setpageCount(totalCount)
+    }
+  }
+  return <Component {...pageProps} blogtag={blogtag} filterTag={filterTag} tagFilter={tagFilter} titlename={titlename} catFilter={catFilter} filterCat={filterCat} handleFilter={handleFilter} filterQuery={filterQuery} pageCount={pageCount} blogcat={blogcat} filteredTask={filteredTask} getNextpage={getNextpage} active={active} pageNaition={pageNaition} totalCount={totalCount} blogcont={blogcont} />
 }

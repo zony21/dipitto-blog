@@ -13,7 +13,7 @@ export default function Home(props) {
       </Head>
       <div className="blog_wrap cont_wrap">
         <div className="box">
-          <Blog catFilter={props.catFilter} filterCat={props.filterCat} handleFilter={props.handleFilter} blogcat={props.blogcat} filterQuery={props.filterQuery} totalCount={props.totalCount} active={props.active} getNextpage={props.getNextpage} filteredTask={props.filteredTask} pageCount={props.pageCount} pageNaition={props.pageNaition} />
+          <Blog blogtag={props.blogtag} filterTag={props.filterTag} tagFilter={props.tagFilter}  catFilter={props.catFilter} filterCat={props.filterCat} handleFilter={props.handleFilter} blogcat={props.blogcat} filterQuery={props.filterQuery} totalCount={props.totalCount} active={props.active} getNextpage={props.getNextpage} filteredTask={props.filteredTask} pageCount={props.pageCount} pageNaition={props.pageNaition} />
         </div>
       </div>
     </Layout>
