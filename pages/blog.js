@@ -68,7 +68,7 @@ function Blog(props) {
                             }
                         </div>
                     </div>
-                    <div className="input-group check-input">
+                    {/* <div className="input-group check-input">
                         <h3>Tags</h3>
                         <div className="selectbox">
                             <ul className="tags">
@@ -92,7 +92,7 @@ function Blog(props) {
                                 }
                             </ul>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
