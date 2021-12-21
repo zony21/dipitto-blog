@@ -26,7 +26,7 @@ function Blog(props) {
                                             <Date dateString={task.publishedAt} />
                                             <div className='tl'>{task.title}</div>
                                             <ul className='tags'>
-                                                {task.b_tag.map((ta, index) => <li key={index}><span>#</span>{ta.tag}</li>)}
+                                                {task.btag.map((ta, index) => <li key={index}><span>#</span>{ta.tag}</li>)}
                                             </ul>
                                         </a>
                                     </Link>
