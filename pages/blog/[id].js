@@ -25,7 +25,7 @@ export default function BlogId({ blog, titlename, blogcont }) {
               </div>
             </div>
             <ul className="tags">
-              {blog.tag.map((ta, index) => <li key={index}><span>#</span>{ta}</li>)}
+              {blog.btag.map((ta, index) => <li key={index}><span>#</span>{ta.tag}</li>)}
             </ul>
             <h2>{blog.title}</h2>
             <div className="content"
