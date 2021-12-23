@@ -68,7 +68,7 @@ function Blog(props) {
                             }
                         </div>
                     </div>
-                    {/* <div className="input-group check-input">
+                    <div className="input-group check-input">
                         <h3>Tags</h3>
                         <div className="selectbox">
                             <ul className="tags">
@@ -80,8 +80,9 @@ function Blog(props) {
                                                     type="checkbox"
                                                     value={tg.id}
                                                     onChange={props.tagFilter}
-                                                    checked={props.filterTag.includes(tg.id)}
+                                                    checked={props.filterTag.some(ttg => ttg.id === tg.id)}
                                                     id={`tag${index + 1}`}
+                                                    name='id'
                                                 />
                                                 <label htmlFor={`tag${index + 1}`}>
                                                     #{tg.tag}
@@ -92,7 +93,7 @@ function Blog(props) {
                                 }
                             </ul>
                         </div>
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </div>

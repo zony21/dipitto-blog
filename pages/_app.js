@@ -62,8 +62,6 @@ export default function App({ Component, pageProps }) {
     setpageNaition(+pageCount * nowpage);
     setActive(nowpage)
   };
-  // ソート条件
-  const [sort, setSort] = useState({});
   const filteredTask = useMemo(() => {
     let tmpTasks = blogcont;
     // 入力した文字は小文字にする
@@ -87,20 +85,20 @@ export default function App({ Component, pageProps }) {
       // tag絞り込み
       if (
         filterTag.length > 0 &&
-        row.btag.map(reg => filterTag.includes(reg.id)) == false
+        filterTag.some( (b) => row.btag.some(g => g.id.includes(b.id))) == false
       ) {
         return false;
       }
       return row;
     });
     return tmpTasks;
-  }, [filterQuery, sort, blogcont, filterCat, filterTag]);
+  }, [filterQuery, blogcont, filterCat, filterTag]);
   // 入力した情報をfilterQueryに入れる
   const handleFilter = e => {
     const { name, value } = e.target;
     setFilterQuery({ ...filterQuery, [name]: value });
   };
-  //checkbox
+  //カテゴリー代入
   const catFilter = e => {
     if (filterCat.includes(e.target.value)) {
       setFilterCat(filterCat.filter(item => item !== e.target.value));
@@ -112,17 +110,19 @@ export default function App({ Component, pageProps }) {
       setpageCount(totalCount)
     }
   }
-  //checkbox
+  //タグ代入
   const tagFilter = e => {
-    if (filterTag.includes(e.target.value)) {
-      setFilterTag(filterTag.filter(item => item !== e.target.value));
+    const { name, value } = e.target;
+    if (filterTag.some(ta => ta.id === e.target.value)) {
+      setFilterTag(filterTag.filter(item => item.id !== e.target.value));
       setpageNaition(0)
       setpageCount(defopage)
     } else {
-      setFilterTag([...filterTag, e.target.value]);
+      setFilterTag([...filterTag,{ [name]: value }]);
       setpageNaition(0)
       setpageCount(totalCount)
     }
   }
+
   return <Component {...pageProps} blogtag={blogtag} filterTag={filterTag} tagFilter={tagFilter} titlename={titlename} catFilter={catFilter} filterCat={filterCat} handleFilter={handleFilter} filterQuery={filterQuery} pageCount={pageCount} blogcat={blogcat} filteredTask={filteredTask} getNextpage={getNextpage} active={active} pageNaition={pageNaition} totalCount={totalCount} blogcont={blogcont} />
 }
