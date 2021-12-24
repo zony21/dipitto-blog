@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
-import Pagination from '../components/Pagination';
-import Date from '../components/Date';
-import Image from 'next/image'
+import Pagination from './Pagination';
+import Date from './Date';
 
 function Blog(props) {
     return (
