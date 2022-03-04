@@ -10,6 +10,7 @@ function Headcom(props) {
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@zonyzony14" />
             <meta name="google-site-verification" content="HaZ81SzNPewdVIOUG_s4p0_VMcBBlcyqDPoIi8-xh5s" />
+            <meta name="robots" content="noindex" />
         </Head>
     )
 }
